@@ -3,10 +3,7 @@ package org.example.AssignmentGeekster.Controller;
 import org.example.AssignmentGeekster.Model.User;
 import org.example.AssignmentGeekster.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +35,11 @@ public class UserController {
     public String createAdmin(@RequestBody User user)
     {
         return userService.createUser(user);
+    }
+
+    @DeleteMapping("/admin/deleteUserById/{ID}")
+    public String deleteUserById(@PathVariable Integer ID)
+    {
+        return userService.deleteUserById(ID);
     }
 }

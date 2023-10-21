@@ -21,4 +21,14 @@ public class UserService {
 
         return "User saved";
     }
+
+    public String deleteUserById(Integer id) {
+        if(userRepo.existsById(id))
+        {
+            userRepo.deleteById(id);
+            return "User deleted";
+        }
+        else
+            return "User not found with id";
+    }
 }
